@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SWU IT</title>
+
+        <script src="jquery.js"></script>
+        <link rel="stylesheet" href="jquery.css" />
+        <link rel="stylesheet" href="jquery.lightbox.css">
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <script src="jquery.lightbox.js"></script>
+
+        <style>
+            body { overflow-x: hidden; overflow-y: auto; }
+            a { text-decoration: none; color:black; }
+            
+            /* page header */
+            #header h2 { position: relative; left:250px; letter-spacing: -2px; }
+            #header h2 img { margin-top: 25px; }
+            #header h3 { position:relative; left: 330px; color: crimson; font-size: 17px; }
+            .tbl 
+            {
+                position: relative; 
+                left: 680px;
+                top: -70px;
+                line-height:2.5;
+        	    margin:0;
+                width: 1000px;
+			    table-layout: fixed;
+                border-collapse: collapse;
+                font-size: 17px;
+            }
+
+            /* IT NEWS */
+            div.item:nth-child(1) { background: none; }
+            div.item:nth-child(2) { background: none; }
+            div.item:nth-child(3) { background-color: none; }
+            #left-button, #right-button, #center-button { background-color: white; border: none; position:relative; left:805px; outline: 0; }
+            #title1 { margin-left: 150px; color: crimson; }
+            .container { position: relative; text-align: left; margin-left: 150px; }
+            .newstitle { font-size: 25px; }
+            .newscon { font-size: 13px; }
+            #more-button a { color: white; }
+            #more-button
+            {
+                background-color: rgb(151, 149, 149);
+                outline: 0;
+                border-radius: 20px 20px 20px 20px;
+                position:relative;
+                margin-left: 150px;
+                padding:6px;
+                border: none;
+                width: 70px;
+                top: -20px;
+            }
+
+            /* SW중심대학 */
+            #tech { left: 250px; position: relative; top:10px; line-height: 30px; }
+            #tech p { font-size: 5px; }
+            #tech2 { width: 600px; }
+
+            /* page 하단 */
+            #contents2, #contents3{background-color: rgba(250, 248, 248, 0);}
+            #contents2 img{width: 180px; height: 300px; border: 1px solid;}
+            .tbl_1, .tbl_2{table-layout: fixed; position: relative;}
+            #movie{color: crimson; margin-left: 150px;}
+            #m1{margin-left: 150px;}
+            #book{color: crimson; margin-left: 150px;}
+            #b1{margin-left:150px;}
+            #youtube{color: crimson; margin-left: 150px;}
+            #y1{margin-left: 150px;}
+            #y1,.y2{width: 180px; height: 250px; border: 1px solid;}
+            #certificate{color:crimson; margin-left: 150px;}
+            #c1{margin-left: 150px; width: 750px; height: 200ox;}
+        </style>
+
+        <script>
+            // 이벤트를 연결합니다.
+            $(document).ready(function () {
+                $('#light_1 a').lightBox();
+            });
+        </script>
+
+        <script>
+            // 이벤트를 연결합니다.
+            $(document).ready(function () {
+                $('#light_2 a').lightBox();
+            });
+        </script>
+
+        <script>
+            // 첫 번째 ready 이벤트
+            $(document).ready(function() {
+                //변수를 선언합니다.
+                var width = $('[data-role="slider"]').attr('data-width');
+                var height = $('[data-role="slider"]').attr('data-height');
+                var count = $('[data-role="slider"] div.item').length;
+
+                //스타일을 적용합니다.
+                $('[data-role="slider"]').css({
+                    position: 'relative',
+                    overflow: 'hidden',
+                    width: width,
+                    height: height
+                }).find('.container').css({
+                    position: 'relative',
+                    width: count * width,
+                    overflow: 'hidden'
+                }).find('.item').css({
+                    width: width,
+                    height: height,
+                    float: 'left',
+                });
+
+                //변수를 선언합니다.
+                var currentPage = 0;
+                var changePage = function () {
+                    $('[data-role="slider"] > .container').animate({
+                        left: -currentPage * width
+                    }, 500);
+                };
+
+                //이벤트를 연결합니다.
+                $('#left-button').click(function () {
+                    if(currentPage > 0) {
+                        //왼쪽으로 이동
+                        currentPage = currentPage - 1;
+                        changePage();
+                    }
+                });
+
+                $('#right-button').click(function () {
+                    if (currentPage < count - 1) {
+                        //오른쪽으로 이동
+                        currentPage = currentPage + 1;
+                        changePage();
+                    }
+                });
+            });
+        </script>
+    </head>
+
+    <body>
+        <div id="header">
+            <h2><a href="SWU IT.html"><img src="swu_logo.jpg" width="80px" height="80px">서울여자대학교</a></h2>
+            <h3>SWU IT</h3>
+
+            <table class="tbl">
+                <thead>
+                    <tr>
+                        <th scope="col" class="btn"><a href="http://sw.swu.ac.kr/">소프트웨어융합학과</a></th>
+                        <th scope="col" class="btn"><a href="http://security.swu.ac.kr/">정보보호학과</a></th>
+                        <th scope="col" class="btn"><a href="http://dm.swu.ac.kr/">디지털미디어학과</a></th>
+                        <th scope="col" class="btn"><a href="https://ds.swu.ac.kr/">데이터사이언스학과</a></th>
+                        <th scope="col" class="btn"><a href="http://software.swu.ac.kr/">소프트웨어중심사업단</a></th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        
+        <div class="slideshow-container">
+
+            <!-- Full-width images with number and caption text -->
+            <div class="mySlides fade">
+              <img src="527_1.jpg" style="width:100%">
+            </div>
+      
+            <div class="mySlides fade">
+              <img src="503_1.jpg" style="width:100%">
+            </div>
+      
+            <div class="mySlides fade">
+              <img src="379_1.jpg" style="width:100%">
+            </div>
+      
+        </div>
+        <br/>
+      
+        <!-- The dots/circles -->
+        <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(0)"></span>
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+        </div>
+        
+        <hr>
+        
+        <div id="contents1">
+            <table>
+                <tr>
+                    <td>
+                        <!-- IT NEWS banner -->
+                        <button id="left-button">◀</button>
+                        <button id="center-button">⏸</button>
+                        <button id="right-button">▶</button>
+                        <h3 id="title1">IT NEWS</h3>
+                        <div data-role="slider" data-width="800" data-height="170">
+                            <div class="container">
+                                <div class="item">
+                                    <br>
+                                    <p class="newstitle">서울여자대학교, 정보보호학과 학부생 참여 논문 SCIE...</p><br>
+                                    <p class="newscon">서울여자대학교(총장 전혜정) 미래산업융합대학 정보보호학과 3학년 심민선, 홍승아, 신유림 학생이 참여한 <br> 지능형 사물인터넷 (IoT : Internet of Things) 
+                                        보안 논문이 지난 10월 8일, 과학기술논문인용색인 SCI급 저널 <br> Applied Sciences(Impact Factor : 2.474)에 게재되었다...</p>
+                                </div>
+                                <div class="item">
+                                    <br>
+                                    <p class="newstitle">서울여자대학교 “포스트 코로나 시대 대비” 기업보안데...</p><br>
+                                    <p class="newscon">서울여자대학교(총장 전혜정)는 오는 27일(금) 10시 “포스트 코로나 시대의 기업보안 이론과 실무”를 주제로 <br> ‘기업보안데이’를 개최한다. 
+                                        서울여대 정보보호특성화사업단이 주최하는 ‘기업보안데이’는 크게 기업보안 <br> 심포지엄과 경진대회로 구분하여 열릴 예정이며...</p>
+                                </div>
+                                <div class="item">
+                                    <br>
+                                    <p class="newstitle">서울여대 홍헬렌 교수 연구팀, ‘2020 한국컴퓨터종합학술...</p><br>
+                                    <p class="newscon">서울여자대학교(총장 전혜정) 소프트웨어융합학과 홍헬렌 교수 연구팀
+                                        (이소영(컴퓨터학과 소프트웨어융합전공 <br> 석사졸업), 이민진(소프트웨어융합학과 초빙강의교수))이 7월 3일 온라인으로 열린 한국정보과학회의 <br> ‘2020 한국컴퓨터종합학술대회...</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button id="more-button"><a href="test.html">more</a></button>
+                    </td>
+                    <td id="tech">
+                        <table id="tech2">
+                            <tr>
+                                <td>[SW중심대학]<a href="http://swedubiz.cafe24.com/%EC%95%8C%EB%A6%BC%C2%B7%EC%86%8C%EC%8B%9D/%EA%B3%B5%EC%A7%80%EC%82%AC%ED%95%AD/?uid=961&mod=document&pageid=1l"> 공동해커톤 Coming Soon!!</a></td>
+                                <td><p>2020.11.19</p></td>
+                            </tr>
+                            <tr>
+                                <td>[SW중심대학]<a href="http://swedubiz.cafe24.com/%EC%95%8C%EB%A6%BC%C2%B7%EC%86%8C%EC%8B%9D/%EA%B3%B5%EC%A7%80%EC%82%AC%ED%95%AD/?uid=960&mod=document&pageid=1l"> 소중대를 소개합니다 이벤트</a></td>
+                                <td><p>2020.11.16</p></td>
+                            </tr>
+                            <tr>
+                                <td>[SW중심대학]<a href="http://swedubiz.cafe24.com/%EC%95%8C%EB%A6%BC%C2%B7%EC%86%8C%EC%8B%9D/%EA%B3%B5%EC%A7%80%EC%82%AC%ED%95%AD/?uid=952&mod=document&pageid=1"> 2020 SW교육 페스티벌</a></td>
+                                <td><p>2020.11.03</p></td>
+                            </tr>
+                            <tr>
+                                <td>[SW중심대학]<a href="http://swedubiz.cafe24.com/%EC%95%8C%EB%A6%BC%C2%B7%EC%86%8C%EC%8B%9D/%EA%B3%B5%EC%A7%80%EC%82%AC%ED%95%AD/?uid=950&mod=document&pageid=1"> 2020 겨울 GURU 수요조사</a></td>
+                                <td><p>2020.10.28</p></td>
+                            </tr>
+                            <tr>
+                                <td>[SW중심대학]<a href="http://swedubiz.cafe24.com/%EC%95%8C%EB%A6%BC%C2%B7%EC%86%8C%EC%8B%9D/%EA%B3%B5%EC%A7%80%EC%82%AC%ED%95%AD/?uid=942&mod=document&pageid=1l"> SWCD Academy 10기 기업인턴 모집</a></td>
+                                <td><p>2020.10.21</p></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <br>
+        <hr>
+
+        <div id="contents2">
+            <table class="tbl_1">
+                <tr>
+                    <br>
+                    <td id="light_1">
+                        <h3 id="movie">추천 영화 TOP 4</h3><br>
+                        <a href="mov1.png"><img src="movie1.png" title="이미테이션 게임" id="m1"></a>
+                        <a href="mov2.png"><img src="movie2.png" title="아이, 로봇"></a>
+                        <a href="mov3.png"><img src="movie3.png" title="그녀"></a>
+                        <a href="mov4.png"><img src="movie4.png" title="아일랜드"></a>
+                    </td>
+                    <td id="light_2">
+                        <h3 id="book">추천 도서 TOP 4</h3><br>
+                        <a href="bo1.png"><img src="book1.png" title="클라우스 슈밥의 제4차 산업혁명" id="b1"></a>
+                        <a href="bo2.png"><img src="book2.png" title="1984"></a>
+                        <a href="bo3.png"><img src="book3.png" title="비전공자를 위한 이해할 수 있는 IT지식"></a>
+                        <a href="bo4.png"><img src="book4.png" title="멋진 신세계"></a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+        <div id="contents3">
+            <table class="tbl_2">
+                <tr>
+                    <br>
+                    <br>
+                    <br>
+                    <td>
+                        <h3 id="youtube">YOUTUBE IT채널</h3><br>
+                        <a href="https://www.youtube.com/channel/UCUpJs89fSBXNolQGOYKn0YQ"><img src="youtube1.png" title="노마드 코더 Nomad Coders" id="y1"></a>
+                        <a href="https://www.youtube.com/channel/UCQNE2JmbasNYbjGAcuBiRRg"><img src="youtube2.png" title="조코딩 JoCoding" class="y2"></a>
+                        <a href="https://www.youtube.com/channel/UCO7g158NWgLyn98z8v3zduA"><img src="youtube3.png" title="코딩하는거니" class="y2"></a>
+                        <a href="https://www.youtube.com/channel/UChflhu32f5EUHlY7_SetNWw"><img src="youtube4.png" title="동빈나" class="y2"></a>
+                    </td>
+                    <td>
+                        <h3 id="certificate">IT분야 자격증</h3><br>
+                        <a href="#"><img src="certificate.png" title="자격증" id="c1"></a>
+                    </td>
+                </tr>
+            </table>
+            <br>
+        </div>
+        
+    </body>
+</html>
